@@ -124,7 +124,7 @@
         ,"🦋"
         ,"🦋"
         ,"🦋"
-        ,"甜甜的小蝶"
+        ,"甜甜小蝶"
         ,"天天开心"
         ,"🦋"
         ,"xiaodie"
@@ -144,7 +144,7 @@
         ,"小蝶"
         ,"小蝶"
         ,"小蝶"
-        ,"美美嘟小蝶"
+        ,"美美小蝶"
         ,"蝴蝶"
         ,"🦋"
         ,"🦋"
@@ -201,8 +201,10 @@
         ctx.globalAlpha = this.opacity;
         ctx.font = `${180 * this.scale}px "微软雅黑"`;
         ctx.fillStyle = colors[i % 12];
+        // 修正：用 texts.length 作为取模基数，避免越界
+        const text = texts[i % texts.length]; 
         ctx.fillText(
-          texts[i % 50],
+          text, // 此时不会取到 undefined
           this.x - this.width * 0.5,
           this.y - this.height * 0.5,
           this.width,
